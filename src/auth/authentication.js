@@ -8,7 +8,7 @@ export const authenticateUser = () => {
         .then((result) => {
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken
-            //window.localStorage.setItem("user", JSON.stringify(result))
+            window.localStorage.setItem("user", JSON.stringify(result))
             const user = result.user
             return result
         }).catch((error) => {
@@ -23,7 +23,7 @@ export const authenticateUser = () => {
 export const signoutAuthenticatedUser = () => {
     signOut(auth).then(() => {
         console.log("it was successfull")
-        //window.localStorage.clear()
+        window.localStorage.clear()
     }).catch((error) => {
         console.log(error)
     })
