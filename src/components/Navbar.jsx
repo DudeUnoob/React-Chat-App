@@ -47,11 +47,13 @@ const Navigation = () => {
             <Nav.Link href='/chat/room'>
               Chat
             </Nav.Link>
-            
+            <Nav.Link href="/account">
+              Account
+            </Nav.Link>
           </Nav>
           <Nav>
             <Nav.Link>{user?.displayName ? (<Button variant="dark" onClick={handleSignOut} onMouseLeave={(e) => e.target.innerText = user?.displayName}  onMouseEnter={(e) => e.target.innerText = "Signout"}>{user.displayName}</Button>) : (<Link to="/signin">Sign in</Link>)}</Nav.Link>
-            <Image roundedCircle={true} src={user?.photoURL}/>
+            <Image roundedCircle={true} src={user?.photoURL} />
           </Nav>
         </Navbar.Collapse>
       </Container>
