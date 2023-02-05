@@ -1,27 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import { BrowserRouter, Routes, Route }  from "react-router-dom"
-import './App.css'
-import Home from "../src/pages/Home"
-import ChatRoom from './pages/ChatRoom'
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Navigation from './components/Navbar';
+import Protected from './components/Protected';
+import { AuthContextProvider } from './context/AuthContext';
+import Account from './pages/Account';
+import Home from './pages/Home';
+import Signin from './pages/Signin';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ChatRoom from './pages/ChatRoom';
+import "./App.css"
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    
-   <BrowserRouter>
-    <Routes>
-      
-      <Route path='/' element={<Home />}/>
-      <Route path='/chat/room' element={<ChatRoom />} />
-    </Routes>
-    
-   </BrowserRouter>
-   
-   
-  )
+    <div>
+      <AuthContextProvider>
+        <BrowserRouter>
+        <Navigation />
+        <Routes>
+          
+          <Route path='/' element={<Home />} />
+          <Route path='/signin' element={<Signin />} />
+          <Route
+            path='/account'
+            element={
+              <Protected>
+                <Account />
+              </Protected>
+            }
+          />
+          <Route path="/chat/room" element={
+            <Protected>
+              <ChatRoom />
+            </Protected>
+          }></Route>
+        </Routes>
+        </BrowserRouter>
+      </AuthContextProvider>
+    </div>
+  );
 }
 
-export default App
+export default App;

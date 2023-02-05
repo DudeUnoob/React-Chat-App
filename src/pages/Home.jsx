@@ -1,62 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { authenticateUser, signoutAuthenticatedUser, } from "../auth/authentication"
-import {getAuth, signOut, onAuthStateChanged} from "firebase/auth"
-import { Link } from 'react-router-dom';
-import HomeSignedOut from '../components/signedInState/HomeSignedOut';
-import HomeSignedIn from '../components/signedInState/HomeSignedIn';
+import React from 'react'
 
-const auth = getAuth()
-
-function Home(){
-    const [signedIn, signInState] = useState(false)
-
-    
-
-    useEffect(() => {
-       
-            onAuthStateChanged(auth, (user) => {
-                
-                if(user) {
-                    signInState(true)
-                    return user
-                    
-                } else {
-                    signInState(false)
-                }
-            })
-        
-        
-    },[signedIn])
-
-    const handleSignIn = () => {
-        
-       if(typeof authenticateUser() === 'undefined') signInState(true)
-       
-    }
-
-    const handleSignOut = () => {
-        signoutAuthenticatedUser()
-        signInState(false)
-        
-    }
-
-    
-
-
-   if(signedIn == true) {
-    return (
-        <HomeSignedIn handleSignOut={handleSignOut}/>
-        
-    )
-} else {
-    return (
-        
-        <HomeSignedOut handleSignIn={handleSignIn}/>
-
-    )
-}
-   
-
+const Home = () => {
+  return (
+    <div>
+      <h1 className='text-center text-3xl font-bold py-8'>Home Page</h1>
+    </div>
+  )
 }
 
-export default Home;
+export default Home

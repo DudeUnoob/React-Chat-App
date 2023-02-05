@@ -1,38 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import SideBar from '../components/chatroom/SideBar';
-import { getAuth, onAuthStateChanged } from "firebase/auth"
-import FourOFour from './404/FourOFour';
-const auth = getAuth()
+import { Container, Button, Offcanvas } from "react-bootstrap";
+import React, {useState, useEffect} from "react"
+import "../css/Chatroom.css";
 
 function ChatRoom () {
-    const [signedIn, setSignedIn] = useState(null)
-    useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-            if(user) {
-                setSignedIn(true)
-            } else {
-                setSignedIn(false)
-            }
-        })
-    }, [])
+    const [show, setShow] = useState(false);
 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
-    if(signedIn == true){
-        
-            return (
-                <>
-                <h1>Open Conversations</h1>
-                <br />
-                <SideBar />
-                </>
-            )
-        
-    } else {
-        return <FourOFour />
-    }
-    
+  return (
+    <>
+    <div className="chatBox">
+        <Container>
+      <Button variant="primary" onClick={handleShow} className="sideBar">
+        Launch
+      </Button>
+      </Container>
+      <Offcanvas show={show} onHide={handleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Chats</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+         In development!
+        </Offcanvas.Body>
+      </Offcanvas>
+      </div>
+    </>
+  );
 }
-
-
 
 export default ChatRoom;

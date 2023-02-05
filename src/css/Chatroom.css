@@ -1,0 +1,9 @@
+.chatBox {
+    justify-content: center;
+    text-align: center;
+    display: flex;
+}
+
+.sideBar {
+    margin: 2rem;
+}
