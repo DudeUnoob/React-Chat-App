@@ -8,10 +8,13 @@ function HomeSignedIn ({ handleSignOut }) {
         <>
         <div className='header'>
             <h1>Go to the chatroom</h1>
-            <img src={user.user?.photoURL} style={{ borderRadius:"50%" }}/>
-            <p><b>Welcome {user.user?.displayName}!</b></p>
             
             <br />
+            <img src={user.user?.photoURL} style={{ borderRadius:"50%" }}/>
+            <br />
+            <br />
+            <p><b>Welcome {user.user?.displayName}!</b></p>
+            
             <Link to={"/chat/room"}>Here</Link>
             <br />
             <br />

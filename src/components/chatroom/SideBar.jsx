@@ -39,7 +39,7 @@ function SideBar () {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <ListGroup variant='flush'>
-            {["John Mayer", "Casey Greene"].map((elm, i) => {
+            {["John Mayer", "Casey Greene", "Still in development!😀"].map((elm, i) => {
                 return <ListGroup.Item id={i} onMouseEnter={() => handleUserHover(i)} onMouseLeave={() => handleUserLeaveHover(i)}>{elm}</ListGroup.Item>
             })}
           </ListGroup>
