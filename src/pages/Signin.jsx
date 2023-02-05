@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import { GoogleButton } from 'react-google-button';
+// import { GoogleButton } from 'react-google-button';
 import { UserAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 import "../css/Signin.css"
 
 const Signin = () => {
@@ -26,7 +27,7 @@ const Signin = () => {
     <div className='googleSignin'>
       <h1 >Sign in</h1>
       <div>
-        <GoogleButton onClick={handleGoogleSignIn} />
+        <Button onClick={handleGoogleSignIn}></Button>
       </div>
     </div>
   );
