@@ -23,9 +23,9 @@ function App() {
           <Route
             path='/account'
             element={
-              <Protected>
+              // <Protected></Protected>
                 <Account />
-              </Protected>
+              
             }
           />
           <Route path="/chat/room" element={
