@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Offcanvas,Button, ListGroup, ListGroupItem } from 'react-bootstrap';
 import "../../css/Sidebar.css"
 
+
 function SideBar () {
     const [show, setShow] = useState(false);
     const [hoveredUser, setHoveredUser] = useState(null)

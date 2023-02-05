@@ -4,6 +4,7 @@ import { UserAuth } from '../context/AuthContext';
 import { Button, Container, Navbar, NavDropdown, Nav, Image } from "react-bootstrap"
 import "../css/Navbar.css"
 
+
 const Navigation = () => {
   const { user, logOut } = UserAuth();
 
